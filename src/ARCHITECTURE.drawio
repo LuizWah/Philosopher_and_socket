@@ -1,0 +1,97 @@
+<mxfile host="65bd71144e">
+    <diagram name="Class Diagram" id="P8TnRnfwK6Q5_NeXzWug">
+        <mxGraphModel dx="3625" dy="940" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="PhilosopherClient&#10;&#10;- SERVER_HOST: String&#10;- SERVER_PORT: int&#10;- Name: String&#10;- messageIdCounter: AtomicInteger&#10;&#10;+ main()&#10;+ start()&#10;+ login()&#10;+ think()&#10;+ requestForks()&#10;+ eat()&#10;+ releaseForks()&#10;+ validateResponse()" style="shape=rectangle;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-790" y="40" width="240" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="philosopherDados&#10;&#10;- thinkingCount: int&#10;- eatingCount: int&#10;- Name: String&#10;- Status: String&#10;&#10;+ incrementThinking()&#10;+ incrementEating()&#10;+ ChangeState()" style="shape=rectangle;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="200" width="240" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Mordomo&#10;&#10;- lock: ReentrantLock&#10;- forks: boolean[]&#10;&#10;+ tryAllocateForks()&#10;+ releaseForks()" style="shape=rectangle;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-660" y="380" width="240" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="ResourceServer&#10;&#10;- philosophers: Map&lt;int, philosopherDados&gt;&#10;- mordomo1: Mordomo&#10;- NUMBER_FORKS: int&#10;- NUMBER_PHILOSOPHERS: int&#10;&#10;+ start()" style="shape=rectangle;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-230" y="200" width="240" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="PhilosopherHandler&lt;br&gt;&lt;br&gt;&lt;span class=&quot;hljs-deletion&quot;&gt;- clientSocket: Socket&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;hljs-deletion&quot;&gt;- philosopherId: int&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;hljs-deletion&quot;&gt;- philosopher: PhilosopherDados&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;hljs-deletion&quot;&gt;- mordomo1: Mordomo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;hljs-deletion&quot;&gt;- server: ResourceServer&lt;br&gt;&lt;/span&gt;&lt;br&gt;+ run()&lt;br&gt;+ handleRequest()&lt;br&gt;+ handleLogin()" style="shape=rectangle;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-300" y="510" width="350" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="endArrow=classic;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="9" target="4" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="510" y="440" as="sourcePoint"/>
+                        <mxPoint x="560" y="390" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="" style="endArrow=classic;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="9" target="5" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="370" y="585" as="sourcePoint"/>
+                        <mxPoint x="290" y="480" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="" style="endArrow=none;dashed=1;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" parent="1" source="4" target="2" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="510" y="440" as="sourcePoint"/>
+                        <mxPoint x="560" y="390" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="14" value="" style="endArrow=none;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;startArrow=diamondThin;startFill=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="3" target="5" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="390" y="240" as="sourcePoint"/>
+                        <mxPoint x="-170" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="" style="shape=stencil(fZJLbsMwDERPo+1AIvVdp+k9AsSphbp24Lj53L52taiZ1NpRFJ80JEfx7tIezo0ifZnG4bO55ePUKn5TRLlvmzFPc6R4r3h3GsbmYxy++2M5nw9L5RJ9DdflhXvhUoSzC0X6UTJs4ek3816ALvcrwGgNrQXhIgJvE2kGkgCiRnDbQDDQQQDJwVcAG8AkgJXKfwmyIC+/IERT0QQTRX1w1aZfh0TwodICWOqhiFRbQwI52QBSRb81INlAfUDegeXSDKzfro8eWuoxjCSAOfhz4Sl3XTHx+v7ZtXOqOJ73Pw==);lineShape=1;" parent="1" vertex="1">
+                    <mxGeometry x="412.9283947094759" y="327.7556310905111" width="3.715870008816637" height="3.7159149456207388" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="ResourceServer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="980" width="310" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="PhilosopherHandler" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-280" y="1120" width="310" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Mordomo" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-280" y="760" width="310" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="PhilosopherClient" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-840" y="1080" width="310" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="PhilosopherDados" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-280" y="1440" width="310" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="22" target="19">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="370" y="1230" as="sourcePoint"/>
+                        <mxPoint x="420" y="1180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="26" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="21" target="19">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="302.5" y="980" as="sourcePoint"/>
+                        <mxPoint x="455" y="1175" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="21" target="24">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="312.5" y="990" as="sourcePoint"/>
+                        <mxPoint x="465" y="1185" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="21" target="23">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="322.5" y="1000" as="sourcePoint"/>
+                        <mxPoint x="475" y="1195" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="21" target="22">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="332.5" y="1010" as="sourcePoint"/>
+                        <mxPoint x="485" y="1205" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
